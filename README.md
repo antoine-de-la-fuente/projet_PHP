@@ -12,15 +12,30 @@ Enfin, il souhaite avoir des statistiques qui l'aideront dans sa prise de décis
  
 
 > Ce projet doit être réalisé en binôme.
-
 > Vous pouvez choisir le sport d'équipe de votre choix (Football, Rugby, Basketball, Volleyball, etc.), vous ferez les adaptations nécessaires à chaque sport (nombre de titulaires par match par exemple).
-
 > Avant de vous lancer dans le développement prenez le temps de bien réfléchir à votre application dans sa globalité. N'hésitez pas à faire des maquettes des différents écrans et posez-vous des questions d'ordre pratique (par exemple, est-ce qu'il ne serait pas intéressant de mémoriser le statut d'un match pour savoir s'il a déjà été préparé ou pas ?).
-
 > Gardez à l'esprit que l'application devra être pratique à utiliser et accessible à des néophytes. Imaginez ce que ça ferait si vous deviez l'utiliser tous les jours !
 
 
 ---
+
+
+## Écrans
+
+
+### Accueil
+- navbar (accueil - derniers matchs - l'équipe - mon compte)
+- bloc dernier match
+- bloc classement saison
+
+
+### Liste des matchs
+__matchs joués / matchs à venir__  
+- date
+- heure
+- nom équipe adverse
+- domicile/extérieur
+- score une fois le match terminé
 
 
 ### Liste des joueurs
@@ -34,14 +49,6 @@ Enfin, il souhaite avoir des statistiques qui l'aideront dans sa prise de décis
 - poste préféré
 - note du coach (commentaire)
 - statut (actif/blessé/suspendu/absent)
-
-
-### Liste des matchs
-- date
-- heure
-- nom équipe adverse
-- domicile/extérieur
-- score une fois le match terminé
 
 
 #### Avant chaque match
@@ -81,3 +88,43 @@ __domicile / exiérieur__
 - % passes réussies
 - cartons
 - ratio cartons/temps de jeu
+
+
+---
+
+
+## Données
+
+
+- entraineur
+    - id
+    - nom
+    - prénom
+    - email
+    - mdp
+    - id équipe
+
+- joueur
+    - id
+    - nom
+    - prénom
+    - email
+    - mdp
+    - temps de jeu
+    - id équipe
+
+- équipe
+    - id
+    - nom
+    - sigle
+    - division
+    - classement
+    - nbmatchs
+    - nbvictoires
+    - nbdefaites
+    - nbnuls
+    - temps de jeu saison
+    - nbbutsmarqués
+    - nbbutsencaissés
+    - nbtirs
+    - nbtirscadrés
