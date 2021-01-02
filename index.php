@@ -31,9 +31,10 @@
         </form>
 
         <?php
-            if(!isset($_POST['email']) && !isset($_POST['password'])) {
+            // TODO: erreur si rien n'est écrit dans email et mot de passe
+            // TODO: afficher erreur seulement après submit
+            if(isset($_POST['email'])) {
                 $verifEmail = $connexion->prepare('SELECT * FROM entraineurs WHERE Email = ? ;'); 
-                // TODO: erreur si rien n'est écrit dans email et mot de passe
                 $verifEmail->execute(array(str_replace(' ', '', $_POST['email'])));
 
                 if($verifEmail->rowCount() == 1) {
@@ -54,8 +55,6 @@
                 } else {
                     echo "L'email spécifié n'est pas valide, veuillez réessayer";
                 }
-            } else {
-                header("Location: accueil.php");
             }
 
             $connexion = null;
