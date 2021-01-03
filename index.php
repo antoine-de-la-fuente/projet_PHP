@@ -42,10 +42,11 @@
                     $verifMDP->execute(array($_POST['email'], $_POST['password']));
 
                     if($verifMDP->rowCount() == 1) {
-                        $users = $verifMDP->fetchALL();
-                        foreach($users as $user) {
-                            $_SESSION['accountID'] = $user['ID_Entraineur'];
-                        }
+                        $row = $verifMDP->fetch();
+                        $_SESSION['accountID'] = $row['ID_Entraineur'];
+                        $_SESSION['prenom'] = $row['Prenom'];
+                        $_SESSION['nom'] = $row['Nom'];
+                        $_SESSION['IDEquipe'] = $row['ID_Equipe'];
                         header("Location: accueil.php");
 
                     } else {

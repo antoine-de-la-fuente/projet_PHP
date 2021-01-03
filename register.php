@@ -24,7 +24,7 @@
         <form action="register.php" method="post">
         prénom <input type="text" name="prenom"></br>
             nom <input type="text" name="nom"></br>
-            email <input type="text" name="email" value=" "></br>
+            email <input type="text" name="email"></br>
             mot de passe <input type="password" name="password"></br>
             confirmation mot de passe <input type="password" name="passwordConfirm"></br>
             <input type="submit" value="Créer mon compte">
@@ -36,7 +36,7 @@
         <?php
             // TODO: erreur si rien n'est écrit dans email et mot de passe
             // TODO: afficher erreur seulement après submit
-            if(isset($_POST['email'])) {
+            if(isset($_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['password'])) {
                 $verifEmail = $connexion->prepare('SELECT * FROM entraineurs WHERE Email = ? ;'); 
                 $verifEmail->execute(array(str_replace(' ', '', $_POST['email'])));
 
@@ -46,10 +46,11 @@
                         $addUser->execute(array('nom' => $_POST['nom'], 'prenom' => $_POST['prenom'], 'email' => $_POST['email'], 'password' => $_POST['password']));
                         
                         $verifEmail->execute(array(str_replace(' ', '', $_POST['email'])));
-                        $users = $verifEmail->fetchAll();
-                        foreach($users as $user) {
-                            $_SESSION['accountID'] = $user['ID_Entraineur'];
-                        }
+                        $row = $verifEmail->fetch();
+                        $_SESSION['accountID'] = $row['ID_Entraineur'];
+                        $_SESSION['prenom'] = $row['Prenom'];
+                        $_SESSION['nom'] = $row['Nom'];
+                        $_SESSION['IDEquipe'] = $rom['ID_Equipe'];
                         header("Location: accueil.php");
 
                     } else {
