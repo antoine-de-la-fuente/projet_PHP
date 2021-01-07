@@ -33,6 +33,7 @@
             $row = $equipe->fetch();
             echo "Vous entraînez l'équipe ".$row['Nom'];
          ?>
+        <a href="gestionJoueurs.php"><input type="button" value="Gérer mon équipe"></a>
         <a href="logout.php"><input type="button" value="Déconnexion"></a>
     </body>
 </html>
